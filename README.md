@@ -5,31 +5,30 @@
 <br/>
 <br/>
 
-# ClaudeAgentsLab
-### Laboratorio de Subagentes Autónomos & Skills de Auditoría para Python
+# ClaudeAgentsLab <img src="images/claudecode.gif" width="35"/>
 
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Anthropic-D97706?style=for-the-badge&logo=anthropic&logoColor=white)](https://docs.anthropic.com/)
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Pytest](https://img.shields.io/badge/Pytest-Testing%20Suite-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)](https://docs.pytest.org/)
-[![License MIT](https://img.shields.io/badge/License-MIT-10B981?style=for-the-badge)](LICENSE)
-
-<p align="center">
-  <b>Un entorno experimental para la orquestación de subagentes especializados con permisos de sólo lectura, detección de vulnerabilidades lógicas y aseguramiento de calidad (QA).</b>
-</p>
-
----
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Anthropic-D97706?style=flat&logo=anthropic&logoColor=white)](https://docs.anthropic.com/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![Pytest](https://img.shields.io/badge/Pytest-Testing%20Suite-0A9EDC?style=flat&logo=pytest&logoColor=white)](https://docs.pytest.org/)
+[![License MIT](https://img.shields.io/badge/License-MIT-10B981?style=flat)](LICENSE)
 
 </div>
 
-### ↳ Overview 🧪
+<img src="images/orange-line.gif" width="100%"/>
 
-En el desarrollo de software moderno con Inteligencia Artificial, delegar todo el trabajo a un solo modelo sin restricciones suele generar código roto o alucinaciones. 
+<img align="right" src="images/clawdlaptop.gif" width="220"/>
 
-**ClaudeAgentsLab** implementa el paradigma de **Agentes Especializados con Permisos Restringidos**:
-* 🔒 **Permisos estrictos de sólo lectura:** En lugar de dar acceso total de edición a ciegas, los subagentes operan con "las manos atadas" únicamente usando herramientas de inspección (`Read`, `Grep`, `Glob`).
-* 🎯 **Auditoría profunda sin efectos secundarios:** Auditan minuciosamente la lógica, señalan fallos de ejecución y evalúan el rigor de las pruebas sin alterar ni un solo archivo del repositorio.
+When you give an AI model full access to your codebase, it tends to do too much — editing things it shouldn't, missing subtle bugs, or hallucinating fixes. **ClaudeAgentsLab** takes a different approach: instead of one model doing everything, it uses specialized subagents with read-only permissions that focus exclusively on finding what's broken, without touching a single file.
 
----
+Two agents, two jobs:
+- One audits your code logic — types, null references, broken contracts
+- One audits your tests — missing edge cases, weak assertions, uncovered error paths
+
+No writes. No side effects. Just honest, structured reports.
+
+<br clear="right"/>
+
+<img src="images/orange-line.gif" width="100%"/>
 
 ### ↳ Architecture & Ecosystem 🏗️
 
@@ -37,103 +36,89 @@ En el desarrollo de software moderno con Inteligencia Artificial, delegar todo e
 ClaudeAgentsLab/
 ├── .claude/
 │   ├── agents/
-│   │   ├── code-reviewer.md        🤖 Inspector de lógica, tipos y manejo de errores
-│   │   └── test-reviewer.md        🧪 Auditor de suites de pruebas con pytest
+│   │   ├── code-reviewer.md        🤖 Logic, types and error handling inspector
+│   │   └── test-reviewer.md        🧪 Pytest suite auditor
 │   └── skills/
 │       ├── python-code-review/
-│       │   └── SKILL.md            📜 Manual de procedimiento para análisis estático
+│       │   └── SKILL.md            📜 Static analysis procedure manual
 │       └── python-test-review/
-│           └── SKILL.md            📜 Manual de procedimiento para cobertura de tests
-├── .agents/                        🔄 Espejo de compatibilidad con Google Antigravity
-├── src/                            📦 Código fuente de la aplicación (Banco de pruebas)
+│           └── SKILL.md            📜 Test coverage procedure manual
+├── .agents/                        🔄 Google Antigravity compatibility mirror
+├── src/                            📦 Application source code (testbench)
 │   ├── tasks.py
 │   └── validation.py
-├── tests/                          🧪 Batería de pruebas unitarias
+├── tests/                          🧪 Unit test suite
 │   ├── test_tasks.py
 │   └── test_validation.py
-├── requirements.txt                ⚡ Dependencias del proyecto
-├── README.md                       📑 Documentación técnica
-└── LICENSE                         ⚖️ Licencia de código abierto MIT
+├── requirements.txt                ⚡ Project dependencies
+├── README.md                       📑 Technical documentation
+└── LICENSE                         ⚖️ MIT open source license
 ```
 
----
+<img src="images/orange-line.gif" width="100%"/>
 
 ### ↳ Subagents Catalog 🤖
 
-| Subagente | Modelo | Permisos | Enfoque Principal |
+| Subagent | Model | Permissions | Focus |
 | :--- | :---: | :---: | :--- |
-| **`code-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Detección de bugs de ejecución (`TypeError`, desreferenciación de `None`), lógica booleana invertida y contratos de función rotos. Ignora aspectos cosméticos. |
-| **`test-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Detección de casos límite omitidos (edge cases), funciones sin pruebas, aserciones débiles y rutas de error no cubiertas en `pytest`. |
+| **`code-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Runtime bug detection (`TypeError`, `None` dereferencing), inverted boolean logic and broken function contracts. Ignores cosmetic issues. |
+| **`test-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Detection of missing edge cases, untested functions, weak assertions and uncovered error paths in `pytest`. |
 
----
+<img src="images/orange-line.gif" width="100%"/>
 
 ### ↳ Skills & Playbooks 📜
 
-Directrices modulares y reutilizables que enseñan a cualquier agente del ecosistema el protocolo riguroso de revisión:
+Modular, reusable guidelines that teach any agent in the ecosystem the rigorous review protocol:
 
-* 📋 **`python-code-review`**: Descarta advertencias cosméticas (longitud de línea, comillas) y focaliza la atención exclusivamente en bugs funcionales, suposiciones incorrectas y problemas graves de mantenibilidad.
-* 🧪 **`python-test-review`**: Evalúa la capacidad de las pruebas para detectar regresiones en producción, exigiendo verificación de colecciones vacías, entradas nulas e invariantes de datos.
+* 📋 **`python-code-review`**: Discards cosmetic warnings (line length, quotes) and focuses exclusively on functional bugs, incorrect assumptions and serious maintainability issues.
+* 🧪 **`python-test-review`**: Evaluates the ability of tests to detect production regressions, requiring verification of empty collections, null inputs and data invariants.
 
----
+<img src="images/orange-line.gif" width="100%"/>
 
 ### ↳ Testbench & Detected Bugs 🔍
 
-El módulo `src/tasks.py` contiene deliberadamente defectos arquitectónicos para evaluar la precisión del subagente `code-reviewer`:
+The `src/tasks.py` module deliberately contains architectural defects to evaluate the precision of the `code-reviewer` subagent:
 
 ```python
-# ❌ Defecto 1: Lógica invertida en tareas pendientes
+# ❌ Bug 1: Inverted logic in pending tasks
 def get_pending_tasks(tasks):
-    return [task for task in tasks if task["completed"] is True]  # Retorna completadas en vez de pendientes!
+    return [task for task in tasks if task["completed"] is True]  # Returns completed instead of pending!
 
-# ❌ Defecto 2: Posible TypeError por desreferenciación de None
+# ❌ Bug 2: Possible TypeError from None dereferencing
 def complete_task(tasks, task_id):
     task = find_task(tasks, task_id)
-    task["completed"] = True  # Explota si task_id no existe y retorna None!
+    task["completed"] = True  # Crashes if task_id doesn't exist and returns None!
     return task
 
-# ❌ Defecto 3: Identificador hardcodeado
+# ❌ Bug 3: Hardcoded identifier
 def create_task(title):
-    return {"id": 1, "title": title, "completed": False}  # Todos los IDs colisionan en 1
+    return {"id": 1, "title": title, "completed": False}  # All IDs collide at 1
 ```
 
-> **Resultado del agente:** El subagente `code-reviewer` aísla los 3 defectos sin modificar el archivo fuente, emitiendo un reporte estructurado con diagnósticos y propuestas de solución.
+> **Agent result:** The `code-reviewer` subagent isolates all 3 defects without modifying the source file, emitting a structured report with diagnostics and proposed fixes.
 
----
+<img src="images/orange-line.gif" width="100%"/>
 
-### ↳ Quickstart & Testing 💻
-
-* **Prerrequisitos:** Python 3.10+ y Git instalados.
+### ↳ Quickstart 💻
 
 ```bash
-# 1. Clonar el repositorio
+# 1. Clone the repository
 git clone https://github.com/josiasemm/ClaudeAgentsLab.git
 cd ClaudeAgentsLab
 
-# 2. Instalar dependencias
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Ejecutar la suite de pruebas unitarias
+# 3. Run the unit test suite
 pytest -v
 ```
 
----
+<img src="images/orange-line.gif" width="100%"/>
 
 ### ↳ License 📄
 
-Distribuido bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
----
-
-### ↳ Author 👤
+Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
 
 <div align="center">
-
-**Josias Emmanuel González Moreno**  
-*Estudiante de Ingeniería en Software e Ingeniería Física*
-
-[![GitHub](https://img.shields.io/badge/GitHub-josiasemm-181717?style=flat&logo=github)](https://github.com/josiasemm)
-[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
-*Apasionado por la inteligencia artificial aplicada, la ingeniería de software y el modelado computacional.*
-
+<img src="images/claudefutbol.gif" width="80"/>
 </div>
