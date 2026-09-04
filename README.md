@@ -2,9 +2,9 @@
 
 <br/>
 
-<img src="images/claudebanner.gif" width="120" />
+<img src="images/claudestrong.gif" width="160" />
 
-# ClaudeAgentsLab
+# ClaudeAgentsLab <img src="images/claudecode.gif" width="35"/>
 
 <p><b>Specialized read-only Claude Code subagents for automated Python & Pytest QA.</b></p>
 
