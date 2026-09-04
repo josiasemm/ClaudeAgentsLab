@@ -1,39 +1,35 @@
-```text
-              ██████╗██╗      █████╗ ██╗   ██╗██████╗ ███████╗
-             ██╔════╝██║     ██╔══██╗██║   ██║██╔══██╗██╔════╝
-             ██║     ██║     ███████║██║   ██║██║  ██║█████╗  
-             ██║     ██║     ██╔══██║██║   ██║██║  ██║██╔══╝  
-             ╚██████╗███████╗██║  ██║╚██████╔╝██████╔╝███████╗
-              ╚═════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
-                          A G E N T S   L A B
+<div align="center">
 
-╭────────────────────────────────────────────────────────────────────────────╮
-│  CLAUDE AGENTS LAB  ·  [STRICT READ-ONLY INSPECTION BENCHMARK]             │
-├────────────────────────────────────────────────────────────────────────────┤
-│  TARGET : src/tasks.py                  STATUS : 3 DEFECTS ISOLATED        │
-│  AUDIT  : code-reviewer.md              PERMS  : READ | GREP | GLOB        │
-│  SUITE  : test-reviewer.md              ENGINE : CLAUDE 3.7 SONNET         │
-│  MODE   : ZERO-MUTATION RUNTIME         SAFETY : 100% SECURE SANDBOX       │
-╰────────────────────────────────────────────────────────────────────────────╯
-```
+  <br />
+
+  <img src="images/clawdlaptop.gif" width="130" alt="ClaudeAgentsLab Mascot" />
+
+  # ClaudeAgentsLab
+
+  **Specialized read-only Claude Code subagents for automated Python & Pytest QA.**
+
+  <sub>Zero writes · Zero mutations · Strict logical inspection</sub>
+
+</div>
+
+<br />
 
 ---
 
-<img align="right" src="images/clawdlaptop.gif" width="160"/>
+## ↳ Overview
 
-When you give an AI model full access to your codebase, it tends to do too much — editing things it shouldn't, missing subtle bugs, or hallucinating fixes. **ClaudeAgentsLab** takes a different approach: instead of one model doing everything, it uses specialized subagents with read-only permissions that focus exclusively on finding what's broken, without touching a single file.
+When you give an AI agent unrestricted write access to your codebase, things break. Models tend to over-edit, introduce subtle regressions, or hallucinate fixes for non-existent issues.
 
-Two agents, two jobs:
-- One audits your code logic — types, null references, broken contracts
-- One audits your tests — missing edge cases, weak assertions, uncovered error paths
+**ClaudeAgentsLab** demonstrates a safer architectural pattern: **Subagents with "hands tied"**. Instead of one model doing everything, it deploys two specialized inspectors restricted to read-only tools (`Read`, `Grep`, `Glob`) that audit your code and test suite without modifying a single file.
 
-No writes. No side effects. Just honest, structured reports.
-
-<br clear="right"/>
+| Subagent | Role | Allowed Tools | Focus |
+| :--- | :---: | :---: | :--- |
+| **`code-reviewer`** | Code Logic Inspector | `Read`, `Grep`, `Glob` | Catches runtime bugs (`TypeError`, `None` dereferences), inverted logic, and broken function contracts. |
+| **`test-reviewer`** | Test Suite Auditor | `Read`, `Grep`, `Glob` | Identifies missing edge cases, untested functions, weak assertions, and uncovered error paths in `pytest`. |
 
 ---
 
-### ↳ Architecture & Ecosystem 🏗️
+## ↳ Architecture & Ecosystem
 
 ```text
 ClaudeAgentsLab/
@@ -60,49 +56,31 @@ ClaudeAgentsLab/
 
 ---
 
-### ↳ Subagents Catalog 🤖
+## ↳ Testbench & Detected Defects
 
-| Subagent | Model | Permissions | Focus |
-| :--- | :---: | :---: | :--- |
-| **`code-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Runtime bug detection (`TypeError`, `None` dereferencing), inverted boolean logic and broken function contracts. Ignores cosmetic issues. |
-| **`test-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Detection of missing edge cases, untested functions, weak assertions and uncovered error paths in `pytest`. |
-
----
-
-### ↳ Skills & Playbooks 📜
-
-Modular, reusable guidelines that teach any agent in the ecosystem the rigorous review protocol:
-
-* 📋 **`python-code-review`**: Discards cosmetic warnings (line length, quotes) and focuses exclusively on functional bugs, incorrect assumptions and serious maintainability issues.
-* 🧪 **`python-test-review`**: Evaluates the ability of tests to detect production regressions, requiring verification of empty collections, null inputs and data invariants.
-
----
-
-### ↳ Testbench & Detected Bugs 🔍
-
-The `src/tasks.py` module deliberately contains architectural defects to evaluate the precision of the `code-reviewer` subagent:
+The `src/tasks.py` module deliberately contains architectural defects to verify the subagents' diagnostic accuracy:
 
 ```python
-# ❌ Bug 1: Inverted logic in pending tasks
+# ❌ Defect 1: Inverted boolean logic (returns completed instead of pending)
 def get_pending_tasks(tasks):
-    return [task for task in tasks if task["completed"] is True]  # Returns completed instead of pending!
+    return [task for task in tasks if task["completed"] is True]
 
-# ❌ Bug 2: Possible TypeError from None dereferencing
+# ❌ Defect 2: TypeError on None dereference when task_id does not exist
 def complete_task(tasks, task_id):
     task = find_task(tasks, task_id)
-    task["completed"] = True  # Crashes if task_id doesn't exist and returns None!
+    task["completed"] = True
     return task
 
-# ❌ Bug 3: Hardcoded identifier
+# ❌ Defect 3: Hardcoded static identifier collision
 def create_task(title):
-    return {"id": 1, "title": title, "completed": False}  # All IDs collide at 1
+    return {"id": 1, "title": title, "completed": False}
 ```
 
-> **Agent result:** The `code-reviewer` subagent isolates all 3 defects without modifying the source file, emitting a structured report with diagnostics and proposed fixes.
+> **Agent Audit Result:** The `code-reviewer` isolates all 3 defects without touching the source file, outputting structured diagnosis and remediation code.
 
 ---
 
-### ↳ Quickstart 💻
+## ↳ Quickstart
 
 ```bash
 # 1. Clone the repository
@@ -118,12 +96,12 @@ pytest -v
 
 ---
 
-### ↳ License 📄
+## ↳ License
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
-<br/>
+<br />
 
 <div align="center">
-  <img src="images/claudefutbol.gif" width="80"/>
+  <img src="images/claudefutbol.gif" width="75" alt="Claude" />
 </div>
