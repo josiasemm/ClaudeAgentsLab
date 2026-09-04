@@ -1,7 +1,16 @@
 <div align="center">
 
-  <img src="images/hero.svg" width="100%" alt="ClaudeAgentsLab Hero" />
+  <br />
 
+  <img src="images/clawdlaptop.gif" width="115" alt="Claude Code Mascot" />
+
+  # ClaudeAgentsLab
+
+  **Specialized read-only Claude Code subagents for automated Python & Pytest QA.**
+
+  <sub>Dual-pipeline inspection · Zero writes · Strict sandbox</sub>
+
+  <br />
   <br />
 
   <p align="center">
