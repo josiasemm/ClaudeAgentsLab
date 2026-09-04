@@ -6,11 +6,6 @@
 <br/>
 
 # ClaudeAgentsLab <img src="images/claudecode.gif" width="35"/>
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,bash,git,github,vscode" />
-</p>
-
 </div>
 
 <img src="images/orange-line.gif" width="100%"/>
