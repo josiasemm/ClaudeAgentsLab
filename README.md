@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧪 ClaudeAgentsLab
+# ClaudeAgentsLab
 ### Laboratorio de Subagentes Autónomos & Skills de Auditoría para Python
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Anthropic-D97706?style=for-the-badge&logo=anthropic&logoColor=white)](https://docs.anthropic.com/)
