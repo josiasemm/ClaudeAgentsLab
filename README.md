@@ -17,9 +17,9 @@
 ╰────────────────────────────────────────────────────────────────────────────╯
 ```
 
-<img src="images/orange-line.gif" width="100%"/>
+---
 
-<img align="right" src="images/clawdlaptop.gif" width="220"/>
+<img align="right" src="images/clawdlaptop.gif" width="160"/>
 
 When you give an AI model full access to your codebase, it tends to do too much — editing things it shouldn't, missing subtle bugs, or hallucinating fixes. **ClaudeAgentsLab** takes a different approach: instead of one model doing everything, it uses specialized subagents with read-only permissions that focus exclusively on finding what's broken, without touching a single file.
 
@@ -31,7 +31,7 @@ No writes. No side effects. Just honest, structured reports.
 
 <br clear="right"/>
 
-<img src="images/orange-line.gif" width="100%"/>
+---
 
 ### ↳ Architecture & Ecosystem 🏗️
 
@@ -58,7 +58,7 @@ ClaudeAgentsLab/
 └── LICENSE                         ⚖️ MIT open source license
 ```
 
-<img src="images/orange-line.gif" width="100%"/>
+---
 
 ### ↳ Subagents Catalog 🤖
 
@@ -67,7 +67,7 @@ ClaudeAgentsLab/
 | **`code-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Runtime bug detection (`TypeError`, `None` dereferencing), inverted boolean logic and broken function contracts. Ignores cosmetic issues. |
 | **`test-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Detection of missing edge cases, untested functions, weak assertions and uncovered error paths in `pytest`. |
 
-<img src="images/orange-line.gif" width="100%"/>
+---
 
 ### ↳ Skills & Playbooks 📜
 
@@ -76,7 +76,7 @@ Modular, reusable guidelines that teach any agent in the ecosystem the rigorous 
 * 📋 **`python-code-review`**: Discards cosmetic warnings (line length, quotes) and focuses exclusively on functional bugs, incorrect assumptions and serious maintainability issues.
 * 🧪 **`python-test-review`**: Evaluates the ability of tests to detect production regressions, requiring verification of empty collections, null inputs and data invariants.
 
-<img src="images/orange-line.gif" width="100%"/>
+---
 
 ### ↳ Testbench & Detected Bugs 🔍
 
@@ -100,7 +100,7 @@ def create_task(title):
 
 > **Agent result:** The `code-reviewer` subagent isolates all 3 defects without modifying the source file, emitting a structured report with diagnostics and proposed fixes.
 
-<img src="images/orange-line.gif" width="100%"/>
+---
 
 ### ↳ Quickstart 💻
 
@@ -116,12 +116,14 @@ pip install -r requirements.txt
 pytest -v
 ```
 
-<img src="images/orange-line.gif" width="100%"/>
+---
 
 ### ↳ License 📄
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
 
+<br/>
+
 <div align="center">
-<img src="images/claudefutbol.gif" width="80"/>
+  <img src="images/claudefutbol.gif" width="80"/>
 </div>
