@@ -1,11 +1,13 @@
 <div align="center">
 
-<img src="images/banner_panoramic.gif" alt="ClaudeAgentsLab Banner" width="100%" />
-
-<br/>
 <br/>
 
-# ClaudeAgentsLab <img src="images/claudecode.gif" width="35"/>
+<img src="images/claudebanner.gif" width="120" />
+
+# ClaudeAgentsLab
+
+<p><b>Specialized read-only Claude Code subagents for automated Python & Pytest QA.</b></p>
+
 </div>
 
 <img src="images/orange-line.gif" width="100%"/>
