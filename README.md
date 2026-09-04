@@ -16,16 +16,17 @@
 
 </div>
 
-## 📌 ¿Qué es ClaudeAgentsLab?
+### ↳ Overview 🧪
 
 En el desarrollo de software moderno con Inteligencia Artificial, delegar todo el trabajo a un solo modelo sin restricciones suele generar código roto o alucinaciones. 
 
-**ClaudeAgentsLab** demuestra el paradigma de **Agentes Especializados con Permisos Restringidos**:
-En lugar de darle acceso total a la IA para modificar archivos a ciegas, creamos **subagentes inspectores con "las manos atadas"** que únicamente cuentan con herramientas de inspección (`Read`, `Grep`, `Glob`). Su labor es auditar minuciosamente el código, señalar fallas lógicas reales y evaluar el rigor de las pruebas sin alterar el repositorio.
+**ClaudeAgentsLab** implementa el paradigma de **Agentes Especializados con Permisos Restringidos**:
+* 🔒 **Permisos estrictos de sólo lectura:** En lugar de dar acceso total de edición a ciegas, los subagentes operan con "las manos atadas" únicamente usando herramientas de inspección (`Read`, `Grep`, `Glob`).
+* 🎯 **Auditoría profunda sin efectos secundarios:** Auditan minuciosamente la lógica, señalan fallos de ejecución y evalúan el rigor de las pruebas sin alterar ni un solo archivo del repositorio.
 
 ---
 
-## 🏗️ Arquitectura de Agentes & Ecosistema
+### ↳ Architecture & Ecosystem 🏗️
 
 ```text
 ClaudeAgentsLab/
@@ -52,29 +53,25 @@ ClaudeAgentsLab/
 
 ---
 
-## 🤖 Catálogo de Subagentes
+### ↳ Subagents Catalog 🤖
 
-| Subagente | Modelo | Permisos / Herramientas | Enfoque Principal |
+| Subagente | Modelo | Permisos | Enfoque Principal |
 | :--- | :---: | :---: | :--- |
-| **`code-reviewer`** | Claude 3.5 / 3.7 Sonnet | `Read`, `Grep`, `Glob` *(Sólo Lectura)* | Detección de bugs de ejecución (`TypeError`, desreferenciación de `None`), lógica booleana invertida y contratos de función rotos. Ignora estética/formato. |
-| **`test-reviewer`** | Claude 3.5 / 3.7 Sonnet | `Read`, `Grep`, `Glob` *(Sólo Lectura)* | Detección de casos límite omitidos (edge cases), funciones sin pruebas, aserciones débiles y rutas de error no cubiertas en `pytest`. |
+| **`code-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Detección de bugs de ejecución (`TypeError`, desreferenciación de `None`), lógica booleana invertida y contratos de función rotos. Ignora aspectos cosméticos. |
+| **`test-reviewer`** | Claude Sonnet | `Read`, `Grep`, `Glob` | Detección de casos límite omitidos (edge cases), funciones sin pruebas, aserciones débiles y rutas de error no cubiertas en `pytest`. |
 
 ---
 
-## 📜 Skills del Repositorio (`.claude/skills/`)
+### ↳ Skills & Playbooks 📜
 
-Las **Skills** son directrices modulares y reutilizables que enseñan a cualquier agente del ecosistema el protocolo riguroso de revisión:
+Directrices modulares y reutilizables que enseñan a cualquier agente del ecosistema el protocolo riguroso de revisión:
 
-1. **`python-code-review`**:
-   * Descarta advertencias cosméticas (longitud de línea, comillas dobles vs simples).
-   * Focaliza la atención en: bugs funcionales, suposiciones no validadas y problemas graves de mantenibilidad.
-2. **`python-test-review`**:
-   * Evalúa la capacidad de las pruebas para detectar regresiones en producción.
-   * Exige comprobación de colecciones vacías, entradas nulas e invariantes de datos.
+* 📋 **`python-code-review`**: Descarta advertencias cosméticas (longitud de línea, comillas) y focaliza la atención exclusivamente en bugs funcionales, suposiciones incorrectas y problemas graves de mantenibilidad.
+* 🧪 **`python-test-review`**: Evalúa la capacidad de las pruebas para detectar regresiones en producción, exigiendo verificación de colecciones vacías, entradas nulas e invariantes de datos.
 
 ---
 
-## 🔍 Caso de Estudio: Trampas Detectadas en el Banco de Pruebas
+### ↳ Testbench & Detected Bugs 🔍
 
 El módulo `src/tasks.py` contiene deliberadamente defectos arquitectónicos para evaluar la precisión del subagente `code-reviewer`:
 
@@ -94,17 +91,14 @@ def create_task(title):
     return {"id": 1, "title": title, "completed": False}  # Todos los IDs colisionan en 1
 ```
 
-> **Resultado del agente:** El subagente `code-reviewer` aísla los 3 defectos sin modificar el archivo fuente, emitiendo un reporte con diagnósticos y propuestas de solución en pseudocódigo.
+> **Resultado del agente:** El subagente `code-reviewer` aísla los 3 defectos sin modificar el archivo fuente, emitiendo un reporte estructurado con diagnósticos y propuestas de solución.
 
 ---
 
-## 💻 Instalación y Pruebas
+### ↳ Quickstart & Testing 💻
 
-### Prerrequisitos
-* Python 3.10 o superior
-* Git
+* **Prerrequisitos:** Python 3.10+ y Git instalados.
 
-### Ejecución en local
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/josiasemm/ClaudeAgentsLab.git
@@ -113,18 +107,19 @@ cd ClaudeAgentsLab
 # 2. Instalar dependencias
 pip install -r requirements.txt
 
-# 3. Ejecutar las pruebas unitarias
+# 3. Ejecutar la suite de pruebas unitarias
 pytest -v
 ```
 
 ---
 
-## 📄 Licencia
+### ↳ License 📄
+
 Distribuido bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
-## 👤 Autor
+### ↳ Author 👤
 
 <div align="center">
 
