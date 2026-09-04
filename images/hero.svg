@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C14"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+
+    <!-- Amber Glow Gradient for Claude -->
+    <radialGradient id="amberGlow" cx="80%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#D97706" stop-opacity="0.22"/>
+      <stop offset="40%" stop-color="#D97706" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Cyan Glow for Python/QA -->
+    <radialGradient id="cyanGlow" cx="20%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#D97706" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Claude Spark Gradient -->
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E293B" stroke-width="0.75" stroke-opacity="0.45"/>
+    </pattern>
+
+    <style>
+      @keyframes pulseDot {
+        0% { opacity: 0.35; }
+        50% { opacity: 1; }
+        100% { opacity: 0.35; }
+      }
+      .pulse {
+        animation: pulseDot 2s ease-in-out infinite;
+      }
+      .font-mono {
+        font-family: 'SF Mono', 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+      }
+      .font-sans {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- Card Background -->
+  <rect x="2" y="2" width="996" height="316" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid -->
+  <rect x="2" y="2" width="996" height="316" rx="16" fill="url(#grid)"/>
+
+  <!-- Ambient Glows -->
+  <rect x="2" y="2" width="996" height="316" rx="16" fill="url(#amberGlow)"/>
+  <rect x="2" y="2" width="996" height="316" rx="16" fill="url(#cyanGlow)"/>
+
+  <!-- Glass Card Border -->
+  <rect x="2" y="2" width="996" height="316" rx="16" fill="none" stroke="url(#borderGrad)" stroke-width="1.5"/>
+
+  <!-- Window Bar -->
+  <rect x="2" y="2" width="996" height="42" rx="16" fill="#0F172A" fill-opacity="0.5"/>
+  <line x1="2" y1="44" x2="998" y2="44" stroke="#334155" stroke-width="1" stroke-opacity="0.5"/>
+
+  <!-- Window Dots -->
+  <circle cx="28" cy="23" r="5.5" fill="#EF4444"/>
+  <circle cx="46" cy="23" r="5.5" fill="#F59E0B"/>
+  <circle cx="64" cy="23" r="5.5" fill="#10B981"/>
+
+  <!-- Window Title -->
+  <text x="500" y="27" text-anchor="middle" fill="#64748B" font-size="12" font-weight="500" class="font-mono" letter-spacing="0.5">
+    claude-agents-lab  ·  dual-pipeline inspection sandbox
+  </text>
+
+  <!-- Live Status Pill (Top Right) -->
+  <g transform="translate(740, 12)">
+    <rect width="232" height="22" rx="11" fill="#064E3B" fill-opacity="0.4" stroke="#059669" stroke-width="1" stroke-opacity="0.6"/>
+    <circle cx="16" cy="11" r="4" fill="#34D399" class="pulse"/>
+    <text x="28" y="15" fill="#34D399" font-size="10.5" font-weight="600" class="font-mono" letter-spacing="0.5">READ-ONLY ENGINE ACTIVE</text>
+  </g>
+
+  <!-- Claude Geometric Spark / Glyph (Right Side Watermark) -->
+  <g transform="translate(810, 85)" opacity="0.85">
+    <!-- Stylized Geometric Anthropic/Claude Abstract Nodes -->
+    <circle cx="70" cy="70" r="48" fill="none" stroke="url(#claudeGrad)" stroke-width="2" stroke-dasharray="6 6"/>
+    <path d="M70 30 L85 60 L115 70 L85 80 L70 110 L55 80 L25 70 L55 60 Z" fill="url(#claudeGrad)"/>
+    <circle cx="70" cy="70" r="14" fill="#080C14" stroke="#F59E0B" stroke-width="2"/>
+    <circle cx="70" cy="70" r="6" fill="#FDE68A"/>
+    <!-- Orbiting satellite dots -->
+    <circle cx="20" cy="70" r="3.5" fill="#F59E0B"/>
+    <circle cx="120" cy="70" r="3.5" fill="#38BDF8"/>
+    <circle cx="70" cy="20" r="3.5" fill="#34D399"/>
+    <circle cx="70" cy="120" r="3.5" fill="#F59E0B"/>
+  </g>
+
+  <!-- Main Hero Content (Left Side) -->
+  <g transform="translate(48, 86)">
+    <!-- Subtitle Category / Badge -->
+    <g>
+      <rect width="180" height="20" rx="4" fill="#D97706" fill-opacity="0.15" stroke="#D97706" stroke-width="0.75"/>
+      <text x="90" y="14" text-anchor="middle" fill="#F59E0B" font-size="10" font-weight="700" class="font-mono" letter-spacing="1">AGENTIC QA BENCHMARK</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="62" fill="#F8FAFC" font-size="38" font-weight="800" class="font-sans" letter-spacing="-1">
+      ClaudeAgentsLab
+    </text>
+
+    <!-- Hero Description -->
+    <text x="0" y="92" fill="#94A3B8" font-size="14.5" font-weight="400" class="font-sans">
+      Specialized read-only Claude Code subagents for autonomous Python &amp; Pytest auditing.
+    </text>
+
+    <!-- Terminal Command Mockup Bar (Bottom Row) -->
+    <g transform="translate(0, 126)">
+      <rect width="700" height="52" rx="8" fill="#030712" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+      
+      <!-- Prompt Line -->
+      <text x="18" y="24" fill="#F59E0B" font-size="13" font-weight="700" class="font-mono">❯</text>
+      <text x="36" y="24" fill="#E2E8F0" font-size="12.5" font-weight="500" class="font-mono">claude --agent code-reviewer --audit src/tasks.py</text>
+      
+      <!-- Output Line -->
+      <text x="18" y="42" fill="#10B981" font-size="12" font-weight="600" class="font-mono">✔</text>
+      <text x="36" y="42" fill="#94A3B8" font-size="11.5" font-weight="400" class="font-mono">3 defects isolated in 1.4s · 0 writes executed · Strict sandbox enforced</text>
+    </g>
+  </g>
+</svg>
