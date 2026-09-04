@@ -1,14 +1,21 @@
-<div align="center">
+```text
+              ██████╗██╗      █████╗ ██╗   ██╗██████╗ ███████╗
+             ██╔════╝██║     ██╔══██╗██║   ██║██╔══██╗██╔════╝
+             ██║     ██║     ███████║██║   ██║██║  ██║█████╗  
+             ██║     ██║     ██╔══██║██║   ██║██║  ██║██╔══╝  
+             ╚██████╗███████╗██║  ██║╚██████╔╝██████╔╝███████╗
+              ╚═════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
+                          A G E N T S   L A B
 
-<br/>
-
-<img src="images/claudestrong.gif" width="160" />
-
-# ClaudeAgentsLab <img src="images/claudecode.gif" width="35"/>
-
-<p><b>Specialized read-only Claude Code subagents for automated Python & Pytest QA.</b></p>
-
-</div>
+╭────────────────────────────────────────────────────────────────────────────╮
+│  CLAUDE AGENTS LAB  ·  [STRICT READ-ONLY INSPECTION BENCHMARK]             │
+├────────────────────────────────────────────────────────────────────────────┤
+│  TARGET : src/tasks.py                  STATUS : 3 DEFECTS ISOLATED        │
+│  AUDIT  : code-reviewer.md              PERMS  : READ | GREP | GLOB        │
+│  SUITE  : test-reviewer.md              ENGINE : CLAUDE 3.7 SONNET         │
+│  MODE   : ZERO-MUTATION RUNTIME         SAFETY : 100% SECURE SANDBOX       │
+╰────────────────────────────────────────────────────────────────────────────╯
+```
 
 <img src="images/orange-line.gif" width="100%"/>
 
