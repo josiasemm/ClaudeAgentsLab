@@ -1,5 +1,10 @@
 <div align="center">
 
+<img src="images/banner.jpg" alt="ClaudeAgentsLab Banner" width="100%" />
+
+<br/>
+<br/>
+
 # ClaudeAgentsLab
 ### Laboratorio de Subagentes Autónomos & Skills de Auditoría para Python
 
