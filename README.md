@@ -7,10 +7,9 @@
 
 # ClaudeAgentsLab <img src="images/claudecode.gif" width="35"/>
 
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Anthropic-D97706?style=flat&logo=anthropic&logoColor=white)](https://docs.anthropic.com/)
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Pytest](https://img.shields.io/badge/Pytest-Testing%20Suite-0A9EDC?style=flat&logo=pytest&logoColor=white)](https://docs.pytest.org/)
-[![License MIT](https://img.shields.io/badge/License-MIT-10B981?style=flat)](LICENSE)
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,bash,git,github,vscode" />
+</p>
 
 </div>
 
