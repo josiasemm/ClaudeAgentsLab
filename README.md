@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="images/banner_header.jpg" alt="ClaudeAgentsLab Banner" width="100%" />
+<img src="images/banner.gif" alt="ClaudeAgentsLab Banner" width="100%" />
 
 <br/>
 <br/>
