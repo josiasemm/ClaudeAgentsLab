@@ -1,27 +1,20 @@
-<div align="center">
-
-  <br />
-
-  <img src="images/clawdlaptop.gif" width="115" alt="Claude Code Mascot" />
-
-  # ClaudeAgentsLab
-
-  **Specialized read-only Claude Code subagents for automated Python & Pytest QA.**
-
-  <sub>Dual-pipeline inspection · Zero writes · Strict sandbox</sub>
-
-  <br />
-  <br />
-
-  <p align="center">
-    <a href="#-overview">Overview</a> &nbsp;•&nbsp;
-    <a href="#-architecture--ecosystem">Architecture</a> &nbsp;•&nbsp;
-    <a href="#-subagents-catalog">Subagents</a> &nbsp;•&nbsp;
-    <a href="#-testbench--detected-defects">Testbench</a> &nbsp;•&nbsp;
-    <a href="#-quickstart">Quickstart</a>
-  </p>
-
+<br />
+<div>
+  <img src="images/clawdlaptop.gif" align="left" width="140" hspace="15" alt="Claude Code Mascot" />
+  
+  <h1>ClaudeAgentsLab</h1>
+  <b>Specialized read-only Claude Code subagents for automated Python & Pytest QA.</b><br/>
+  <sub>Dual-pipeline inspection &nbsp; / &nbsp; Zero writes &nbsp; / &nbsp; Strict sandbox</sub>
+  
+  <br /><br />
+  
+  <a href="#-overview">Overview</a> &nbsp;•&nbsp;
+  <a href="#-architecture--ecosystem">Architecture</a> &nbsp;•&nbsp;
+  <a href="#-subagents-catalog">Subagents</a> &nbsp;•&nbsp;
+  <a href="#-testbench--detected-defects">Testbench</a> &nbsp;•&nbsp;
+  <a href="#-quickstart">Quickstart</a>
 </div>
+<br clear="left" />
 
 ---
 
