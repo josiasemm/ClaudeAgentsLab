@@ -1,20 +1,16 @@
+# ClaudeAgentsLab
+
+**Specialized read-only Claude Code subagents for automated Python & Pytest QA.**
+
+<kbd>Dual-pipeline inspection</kbd> &nbsp; <kbd>Zero writes</kbd> &nbsp; <kbd>Strict sandbox</kbd>
+
 <br />
-<div>
-  <img src="images/clawdlaptop.gif" align="left" width="140" hspace="15" alt="Claude Code Mascot" />
-  
-  <h1>ClaudeAgentsLab</h1>
-  <b>Specialized read-only Claude Code subagents for automated Python & Pytest QA.</b><br/>
-  <sub>Dual-pipeline inspection &nbsp; / &nbsp; Zero writes &nbsp; / &nbsp; Strict sandbox</sub>
-  
-  <br /><br />
-  
-  <a href="#-overview">Overview</a> &nbsp;•&nbsp;
-  <a href="#-architecture--ecosystem">Architecture</a> &nbsp;•&nbsp;
-  <a href="#-subagents-catalog">Subagents</a> &nbsp;•&nbsp;
-  <a href="#-testbench--detected-defects">Testbench</a> &nbsp;•&nbsp;
-  <a href="#-quickstart">Quickstart</a>
-</div>
-<br clear="left" />
+
+[Overview](#-overview) &nbsp;•&nbsp;
+[Architecture](#-architecture--ecosystem) &nbsp;•&nbsp;
+[Subagents](#-subagents-catalog) &nbsp;•&nbsp;
+[Testbench](#-testbench--detected-defects) &nbsp;•&nbsp;
+[Quickstart](#-quickstart)
 
 ---
 
